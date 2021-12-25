@@ -17,6 +17,8 @@ int main(void)
 
 	printf("value of pAddress %p\n",pAddress);
 	printf("Value at address %p is %x", pAddress, *pAddress);
+	printf("Value at address %p is %x", pAddress, *pAddress);
+
 
 
 
