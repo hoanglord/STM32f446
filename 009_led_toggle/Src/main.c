@@ -25,42 +25,6 @@
 
 int main(void)
 {
-
-	uint32_t *pClcctrlreg =(uint32_t*) 0x40023830;
-	uint32_t *pPortModereg =(uint32_t*)0x40020000;
-	uint32_t *pPortOutreg =(uint32_t*) 0x40020014;
-	//1. bat clock for GpioA in the AHB1ENR;
-//	uint32_t temp = *pClcctrlreg; // read operation
-//
-//	temp= temp| 0x02; // modify
-//	*pClcctrlreg = temp; // write back
-	// thay 3 cau o muc 1 bang 1 cau duy nhat
-	*pClcctrlreg |= (1<<0);
-
-	//2. cau hinh che do in out pin:(mode of the IO pin)
-	//a. clear the 10th 11th bit position
-
-	*pPortModereg &= ~(1<<10);
-	*pPortModereg &= ~(1<<11);
-	//b. thay 2 cau tren bang mot cau
-	*pPortModereg &= ~(3<<10); //vi 3 trong he nhi phan la 11
-
-
-
-
-	//b. set the 10th bit position is 1
-	*pPortModereg |= (1<<10);
-	while(1)
-	{
-		//3. Set 5th bit of output data register to  make I/O pin 5 High
-		*pPortOutreg |= (1<<5);
-
-		//introduce small human observable delay
-		//4. tắt led
-		*pPortOutreg &= ~(1<<5);
-	}
     /* Loop forever */
-
-
-
+	for(;;);
 }
